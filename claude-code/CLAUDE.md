@@ -25,7 +25,77 @@
   ├── README.md       # Detailed README about the solution contents. This should act as a llms.txt for the solution. This file is required if it does not exist.
   ```
 
-  To effectively organize by feature, maintain the distinction of frontend and backend code
+  To effectively organize by feature, maintain the distinction of frontend and backend code and don't be afraid to duplicate folders in both fed and bed directories. Here is a good example of a feature set for listing an arbitrary entity called "projects" and viewing a specific project page written in React.js and Python Fast API:
+  ```bash
+  /
+  ├── app/
+  │   ├── fed/
+  │   │   └── projects/
+  │   │       ├── projects-list/
+  │   │       │   ├── components/
+  │   │       │   │   ├── ProjectCard/
+  │   │       │   │   │   ├── ProjectCard.tsx
+  │   │       │   │   │   ├── ProjectCard.module.css
+  │   │       │   │   │   └── index.ts
+  │   │       │   │   ├── ProjectList/
+  │   │       │   │   │   ├── ProjectList.tsx
+  │   │       │   │   │   ├── ProjectList.module.css
+  │   │       │   │   │   └── index.ts
+  │   │       │   │   └── ProjectFilters/
+  │   │       │   │       ├── ProjectFilters.tsx
+  │   │       │   │       ├── ProjectFilters.module.css
+  │   │       │   │       └── index.ts
+  │   │       │   ├── hooks/
+  │   │       │   │   └── useProjectsList.ts
+  │   │       │   ├── services/
+  │   │       │   │   └── projectsListApi.ts
+  │   │       │   ├── types/
+  │   │       │   │   └── projectsList.types.ts
+  │   │       │   └── pages/
+  │   │       │       └── ProjectsListPage.tsx
+  │   │       └── project/
+  │   │           ├── components/
+  │   │           │   ├── ProjectDetail/
+  │   │           │   │   ├── ProjectDetail.tsx
+  │   │           │   │   ├── ProjectDetail.module.css
+  │   │           │   │   └── index.ts
+  │   │           │   ├── ProjectEdit/
+  │   │           │   │   ├── ProjectEdit.tsx
+  │   │           │   │   ├── ProjectEdit.module.css
+  │   │           │   │   └── index.ts
+  │   │           │   └── ProjectActions/
+  │   │           │       ├── ProjectActions.tsx
+  │   │           │       ├── ProjectActions.module.css
+  │   │           │       └── index.ts
+  │   │           ├── hooks/
+  │   │           │   ├── useProject.ts
+  │   │           │   └── useProjectMutations.ts
+  │   │           ├── services/
+  │   │           │   └── projectApi.ts
+  │   │           ├── types/
+  │   │           │   └── project.types.ts
+  │   │           └── pages/
+  │   │               ├── ProjectDetailPage.tsx
+  │   │               └── ProjectEditPage.tsx
+  │   └── bed/
+  │       └── api/
+  │           ├── projects/
+  │           │   ├── models/
+  │           │   │   └── projects_model.py
+  │           │   ├── services/
+  │           │   │   └── projects_service.py
+  │           │   ├── schemas/
+  │           │   │   └── projects_schemas.py
+  │           │   └── router.py
+  │           └── project/
+  │               ├── models/
+  │               │   └── project_model.py
+  │               ├── services/
+  │               │   └── project_service.py
+  │               ├── schemas/
+  │               │   └── project_schemas.py
+  │               └── router.py
+  ```
 
   For generative AI agentic workflow solutions, organize all agents in
   ```bash
