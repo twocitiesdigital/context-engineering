@@ -1,0 +1,87 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Projects\\claude",
+        "[ADDITIONAL LOCAL DIRECTORY ACCESS]"
+      ]
+    },
+	"brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "[YOUR BRAVE API KEY]"
+      }
+    },
+    "firecrawl-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "[YOUR FIRECRAWL API KEY]"
+      }
+    },
+	"github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "[YOUR GITHUB ACCESS TOKEN]"
+      }
+    },
+	"sequentialthinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "archon": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--add-host=host.docker.internal:host-gateway",
+        "-e",
+        "GRAPH_SERVICE_URL",
+        "archon-mcp:latest"
+      ],
+      "env": {
+        "GRAPH_SERVICE_URL": "http://host.docker.internal:8100"
+      }
+    },
+	"excel": {
+		"command": "cmd",
+		"args": ["/c", "npx", "--yes", "@negokaz/excel-mcp-server"],
+		"env": {
+			"EXCEL_MCP_PAGING_CELLS_LIMIT": "4000"
+		}
+	},
+	"ppt": {
+      "command": "python",
+      "args": ["C:/Projects/mcp/Office-PowerPoint-MCP-Server/ppt_mcp_server.py"],
+      "env": {}
+    }
+  },
+  "logfire": {
+      "command": "uvx",
+      "args": [
+        "logfire-mcp"
+      ],
+      "env": {
+        "LOGFIRE_READ_TOKEN": "[YOUR LOGFIRE TOKEN]"
+      }
+    }
+}
+

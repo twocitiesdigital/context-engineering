@@ -1,0 +1,67 @@
+{
+    "...": "...",
+    "primaryApiKey": "...",
+    "mcpServers": {
+    "sequential-thinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "env": {}
+    },
+    "puppeteer": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ],
+      "env": {}
+    },
+    "archon": {
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",                                                                                                                                                                                                                            
+        "--rm",
+        "--add-host=host.docker.internal:host-gateway",
+        "-e",
+        "GRAPH_SERVICE_URL",
+        "archon-mcp:latest"                                                                                                                                                                                                              
+      ],
+      "env": {
+        "GRAPH_SERVICE_URL": "http://host.docker.internal:8100"
+      }                                                                                                                                                                                                                                  
+    },
+    "logfire": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [                                                                                                                                                                                                                          
+        "logfire-mcp",
+        "--read-token=[YOUR LOGFIRE TOKEN]"
+      ]
+    },
+    "langfuse": {
+      "command": "node",
+      "args": [
+        "/home/charlie/mcp-servers/langfuse-prompts/build/index.js"
+      ],
+      "env": {
+        "LANGFUSE_PUBLIC_KEY": "[YOUR LANGFUSE PUBLIC KEY]",
+        "LANGFUSE_SECRET_KEY": "[YOUR LANGFUSE SECRET KEY]",
+        "LANGFUSE_BASEURL": "https://cloud.langfuse.com"
+      }
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ],
+      "env": {}
+    }
+  }
+}
