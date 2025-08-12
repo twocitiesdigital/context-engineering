@@ -52,7 +52,7 @@
       "env": {
         "LANGFUSE_PUBLIC_KEY": "[YOUR LANGFUSE PUBLIC KEY]",
         "LANGFUSE_SECRET_KEY": "[YOUR LANGFUSE SECRET KEY]",
-        "LANGFUSE_BASEURL": "https://cloud.langfuse.com"
+        "LANGFUSE_BASEURL": "https://us.cloud.langfuse.com"
       }
     },
     "playwright": {

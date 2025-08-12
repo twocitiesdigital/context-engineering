@@ -82,6 +82,22 @@
       "env": {
         "LOGFIRE_READ_TOKEN": "[YOUR LOGFIRE TOKEN]"
       }
+    },
+	"langfuse": {
+      "command": "node",
+      "args": ["C:/Projects/mcp/langfuse-prompts/build/index.js"],
+      "env": {
+        "LANGFUSE_PUBLIC_KEY": "[YOUR LANGFUSE PUBLIC KEY]",
+        "LANGFUSE_SECRET_KEY": "[YOUR LANGFUSE SECRET KEY]",
+        "LANGFUSE_BASEURL": "https://us.cloud.langfuse.com"
+      }
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     }
 }
 
